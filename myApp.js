@@ -3,8 +3,8 @@ var path = require('path')
 var app = express();
 
 
+app.use('/public',express.static(path.join(__dirname , '/public/')))
 
-console.log("Hello World")
 
 
 app.get("/", (req, res) => {
