@@ -6,7 +6,13 @@ require( 'dotenv' ).config()
 
 app.use('/public',express.static(path.join(__dirname , '/public/')))
 
-
+app.use(function(req,res, next) {
+    method = req.method
+    path = req.path
+    ip = req.ip
+    console.log(method, path,'-',ip)
+    next()
+})
 
 app.get("/", (req, res) => {
     abspath = path.join(__dirname, 'views/index.html')
