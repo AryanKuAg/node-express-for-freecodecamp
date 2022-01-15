@@ -14,6 +14,14 @@ app.use(function(req,res, next) {
     next()
 })
 
+app.get('/now', (req, res, next) => {
+    // time = {time:req.}
+    req.time = new Date().toString()
+    next()
+}, (req, res) =>{
+    res.json({time:req.time})
+})
+
 app.get("/", (req, res) => {
     abspath = path.join(__dirname, 'views/index.html')
     res.sendFile(abspath)
