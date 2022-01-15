@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
     res.sendFile(abspath)
 })
 
+app.get("/:word/echo", (req, res) => {
+    res.json({echo: req.params.word})
+})
+
 app.get('/json', (req, res) => {
     // console.log(process.env.MESSAGE_STYLE)
     if (process.env.MESSAGE_STYLE === 'uppercase'){
