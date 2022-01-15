@@ -31,7 +31,10 @@ app.get("/:word/echo", (req, res) => {
     res.json({echo: req.params.word})
 })
 
-app.get('/name', (req,res) => {
+app.route('/name').get((req,res) => {
+    // console.log(req.query)
+    res.json({name:req.query.first + " " + req.query.last})
+}).post( (req,res) => {
     // console.log(req.query)
     res.json({name:req.query.first + " " + req.query.last})
 })
